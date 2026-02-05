@@ -15,21 +15,17 @@ This project demonstrates an end-to-end applied ML workflow: data ingestion → 
 
 And, based on food density, variety, and accessibility, the analysis consistently points to 14th Street–Union Square as the best subway stop to get off if you’re looking for food in NYC.
 
-## Key Findings / Visual Evidence
+Key Findings / Visual Evidence
 
 ### Restaurant Busyness Across NYC
 This plot shows restaurant locations colored by predicted busyness. Clear clusters appear in Manhattan and around major transit corridors, indicating strong spatial patterns in demand.
 
 ![NYC Restaurant Busyness](images/nyc_restaurants_busyness.png)
 
----
-
 ### Spatial Heatmap of Restaurant Demand
 The heatmap highlights areas with the highest concentration of busy restaurants. Demand is strongest near major subway hubs, especially in Midtown and Lower Manhattan.
 
 ![NYC Restaurant Busyness Heatmap](images/heat_map.png)
-
----
 
 ### Distance to Subway vs Restaurant Busyness
 This plot shows the relationship between distance to the nearest subway station and restaurant busyness (log scale). Restaurants closer to transit are significantly busier.
