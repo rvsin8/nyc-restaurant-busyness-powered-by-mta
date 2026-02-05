@@ -1,5 +1,5 @@
 ### NYC Restaurant Busyness Predictor (V1)
-This project explores what drives restaurant busyness in New York City using real-world data. As an avid foodie and a daily NYC commuter, I often find myself wondering which subway stop to get off at on my way to or from school or work to find good food without long waits. That curiosity led me to build a heatmap based on restaurant density, subway ridership, and distance to transit.
+As an avid foodie and a daily NYC commuter, I often find myself wondering which subway stop to get off at on my way to or from school or work to find good food without long waits. That curiosity led me to build a heatmap based on restaurant density, subway ridership, and distance to transit.
 
 The long-term goal is to use this model to predict how busy restaurants will be on days when my friends and I want to eat out without a reservation, helping us identify areas that are most likely to have good food with reasonable wait times. Over time, this can be further refined by cuisine type, commute patterns, ratings, and reviews.
 
