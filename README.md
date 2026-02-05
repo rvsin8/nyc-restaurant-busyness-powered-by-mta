@@ -31,24 +31,13 @@ This plot shows restaurant locations colored by predicted busyness. Clear cluste
 
 
 ### Programming & Tools
-Python
-Pandas & NumPy
-Scikit-learn
-Jupyter Notebooks
+Python, Pandas & NumPy, Scikit-learn, Jupyter Notebooks
 
 
 ### Data Science & Machine Learning
-Feature engineering 
-Supervised learning 
-Model evaluation 
-Time-aware validation 
-Interpreting model behavior 
+Feature engineering, Supervised learning, Model evaluation, Time-aware validation, Interpreting model behavior 
 
 ### Geospatial Analysis
-Latitude/longitude 
-Haversine distance 
-BallTree 
-Linking restaurants to nearest subway stations 
-Spatial clustering and hotspot analysis
+Latitude/longitude, Haversine distance, BallTree, Linking restaurants to nearest subway stations, Spatial clustering and hotspot analysis
 
 
