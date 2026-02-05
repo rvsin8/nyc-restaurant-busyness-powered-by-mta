@@ -29,6 +29,8 @@ This plot shows restaurant locations colored by predicted busyness. Clear cluste
 
 ![NYC Restaurant Busyness](images/nyc_restaurants_busyness.png)
 
+![Rating vs Busyness](images/rating_versus_busyness.png)
+![Busyness vs Distance to Subway](images/busyness_vs_distance.png)
 
 ### Programming & Tools
 Python, Pandas & NumPy, Scikit-learn, Jupyter Notebooks
