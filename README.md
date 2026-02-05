@@ -1,5 +1,3 @@
-## Project Overview
-
 This project explores **what drives restaurant busyness in New York City** using real-world data.  
 The goal is not just to predict outcomes, but to understand how **location, transit access, and demand** interact in an urban environment.
 
@@ -7,7 +5,7 @@ I combined Yelp business data with MTA subway ridership and applied geospatial a
 
 ---
 
-## Why These Data Sources
+Why These Data Sources
 
 - **Yelp dataset** provides rich restaurant metadata (ratings, reviews, categories, locations).
 - **MTA ridership data** acts as a proxy for foot traffic and accessibility.
@@ -16,9 +14,9 @@ Subway ridership is a strong real-world signal for customer flow in NYC, making 
 
 ---
 
-## Key Design Decisions (and Why)
+Key Design Decisions (and Why)
 
-### 1. Station-level aggregation
+1. Station-level aggregation
 I aggregated ridership at the **station complex level** instead of individual turnstiles.
 - Reduces noise
 - Aligns better with how people think about stations
