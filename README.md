@@ -1,36 +1,40 @@
-This project explores **what drives restaurant busyness in New York City** using real-world data.  
-The goal is not just to predict outcomes, but to understand how **location, transit access, and demand** interact in an urban environment.
+This project explores what drives restaurant busyness in New York City using real-world data. As an avid foodie and a daily NYC commuter, I often find myself wondering which subway stop to get off at on my way to or from school or work to find good food without long waits. That curiosity led me to build a heatmap based on restaurant density, subway ridership, and distance to transit.
 
-I combined Yelp business data with MTA subway ridership and applied geospatial analysis and machine learning to model patterns of restaurant activity across NYC.
+The long-term goal is to use this model to predict how busy restaurants will be on days when my friends and I want to eat out without a reservation, helping us identify areas that are most likely to have good food with reasonable wait times. Over time, this can be further refined by cuisine type, commute patterns, ratings, and reviews.
+
+Beyond prediction, the goal is to understand how location, transit access, and demand interact in an urban environment. To do this, I combined Yelp business data with MTA subway ridership and applied geospatial analysis and machine learning to model patterns of restaurant activity across NYC.
 
 ---
 
-Why These Data Sources
+## Why These Data Sources
 
-- **Yelp dataset** provides rich restaurant metadata (ratings, reviews, categories, locations).
-- **MTA ridership data** acts as a proxy for foot traffic and accessibility.
+- **Yelp dataset** I have been using the app ever since I came back from undergrad to navigate my way around NYC's food scence, it provides rich restaurant metadata (ratings, reviews, categories, locations). I would love to look at Beli's in the future.
+- **MTA ridership data** acts as a proxy for foot traffic and accessibility, trust me I know, I use it every day - hence how we got here.
   
 Subway ridership is a strong real-world signal for customer flow in NYC, making it a meaningful feature for modeling restaurant activity.
 
 ---
 
-Key Design Decisions (and Why)
+## Key Design Decisions (and Why)
 
-1. Station-level aggregation
+### 1. Station-level aggregation
 I aggregated ridership at the **station complex level** instead of individual turnstiles.
-- Reduces noise
-- Aligns better with how people think about stations
-- Improves interpretability
+- It reduces noise
+- It aligns better with how people think about stations
+- It improves interpretability
 
 Alternatives
-- Raw turnstile-level data (higher granularity but much noisier)
+- Raw turnstile-level data (brings higher granularity but much noisier)
 
 ---
 
 ### 2. Geospatial matching using BallTree + Haversine
-To associate each restaurant with its **nearest subway station**, I used:
+To associate each restaurant with its **nearest subway station**, I used
 - Haversine distance (accounts for Earth curvature)
 - BallTree for efficient nearest-neighbor search
+- Haversine distance accurately measures real-world distances on the Earth’s surface, which is essential for geographic data. 
+- BallTree allows fast nearest-neighbor searches at scale, making it efficient for matching thousands of restaurants to stations. 
+- Together, they balance accuracy and performance.
 
 Why
 - Scales efficiently to large datasets
@@ -49,8 +53,9 @@ Instead of feeding raw data directly into a model, I engineered interpretable fe
 - Restaurant ratings and review counts
 
 Why
-- Improves model learning
-- Makes results easier to explain and reason about
+- Engineered features like distance to transit and ridership capture meaningful signals more clearly than raw data alone. 
+- They help the model learn relationships that are easier to interpret and reason about. 
+- This also improves transparency when explaining results.
 
 ---
 
@@ -67,7 +72,7 @@ Alternatives
 ---
 
 ### 5. Time-aware validation
-I used **TimeSeriesSplit** instead of random splits.
+- I used **TimeSeriesSplit** instead of random splits.
 - Prevents data leakage
 - Better reflects real-world forecasting
 
@@ -114,7 +119,6 @@ Possible extensions
 
 ## Conclusion
 
-This project demonstrates an end-to-end applied ML workflow:
-data ingestion → spatial reasoning → feature engineering → modeling → validation → visualization.
+This project demonstrates an end-to-end applied ML workflow: data ingestion → spatial reasoning → feature engineering → modeling → validation → visualization.
 
-More importantly, it shows how **real-world context** matters just as much as model choice when working with messy, human-centered data.
+And, based on food density, variety, and accessibility, the analysis consistently points to 14th Street–Union Square as the best subway stop to get off if you’re looking for food in NYC.
