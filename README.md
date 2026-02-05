@@ -6,8 +6,6 @@ Beyond prediction, the goal is to understand how location, transit access, and d
 
 ---
 
-## Why These Data Sources
-
 - **Yelp dataset** I have been using the app ever since I came back from undergrad to navigate my way around NYC's food scence, it provides rich restaurant metadata (ratings, reviews, categories, locations). I would love to look at Beli's in the future.
 - **MTA ridership data** acts as a proxy for foot traffic and accessibility, trust me I know, I use it every day - hence how we got here.
   
@@ -15,7 +13,7 @@ Subway ridership is a strong real-world signal for customer flow in NYC, making 
 
 ---
 
-## Key Design Decisions (and Why)
+## Key Design Decisions
 
 ### 1. Station-level aggregation
 I aggregated ridership at the **station complex level** instead of individual turnstiles.
@@ -78,7 +76,7 @@ Alternatives
 
 ---
 
-## Evaluation
+### Evaluation
 
 Model performance was evaluated using **Mean Absolute Error (MAE)**.
 
@@ -91,7 +89,7 @@ This ensured the model learned **real signals**, not noise.
 
 ---
 
-## Results & Insights
+### Results & Insights
 
 Key takeaways
 - Proximity to high-ridership subway stations correlates strongly with restaurant busyness.
@@ -103,7 +101,7 @@ The NYC heatmap highlights clusters of high activity near transit hubs and dense
 
 ---
 
-## Limitations & Future Work
+### Limitations & Future Work
 
 This project makes simplifying assumptions
 - Busyness is approximated from static features rather than live transaction data.
@@ -117,7 +115,7 @@ Possible extensions
 
 ---
 
-## Conclusion
+### Conclusion
 
 This project demonstrates an end-to-end applied ML workflow: data ingestion → spatial reasoning → feature engineering → modeling → validation → visualization.
 
