@@ -30,25 +30,25 @@ This plot shows restaurant locations colored by predicted busyness. Clear cluste
 ![NYC Restaurant Busyness](images/nyc_restaurants_busyness.png)
 
 
-### Tech Stack & Skills
-#### Python
-#### Pandas & NumPy
-#### Scikit-learn
-#### Jupyter Notebooks
+### Programming & Tools
+Python
+Pandas & NumPy
+Scikit-learn
+Jupyter Notebooks
 
 
 ### Data Science & Machine Learning
-#### Feature engineering 
-#### Supervised learning 
-#### Model evaluation 
-#### Time-aware validation 
-#### Interpreting model behavior 
+Feature engineering 
+Supervised learning 
+Model evaluation 
+Time-aware validation 
+Interpreting model behavior 
 
 ### Geospatial Analysis
-##### Latitude/longitude 
-#### Haversine distance 
-#### BallTree 
-#### Linking restaurants to nearest subway stations 
-#### Spatial clustering and hotspot analysis
+Latitude/longitude 
+Haversine distance 
+BallTree 
+Linking restaurants to nearest subway stations 
+Spatial clustering and hotspot analysis
 
 
