@@ -6,7 +6,7 @@ Beyond prediction, the goal is to understand how location, transit access, and d
 
 ---
 
-# Why These Data Sources
+## Why These Data Sources
 
 - **Yelp dataset** I have been using the app ever since I came back from undergrad to navigate my way around NYC's food scence, it provides rich restaurant metadata (ratings, reviews, categories, locations). I would love to look at Beli's in the future.
 - **MTA ridership data** acts as a proxy for foot traffic and accessibility, trust me I know, I use it every day - hence how we got here.
@@ -17,7 +17,7 @@ Subway ridership is a strong real-world signal for customer flow in NYC, making 
 
 ## Key Design Decisions (and Why)
 
-# 1. Station-level aggregation
+### 1. Station-level aggregation
 I aggregated ridership at the **station complex level** instead of individual turnstiles.
 - It reduces noise
 - It aligns better with how people think about stations
@@ -28,7 +28,7 @@ Alternatives
 
 ---
 
-# 2. Geospatial matching using BallTree + Haversine
+### 2. Geospatial matching using BallTree + Haversine
 To associate each restaurant with its **nearest subway station**, I used
 - Haversine distance (accounts for Earth curvature)
 - BallTree for efficient nearest-neighbor search
@@ -46,7 +46,7 @@ Alternatives
 
 ---
 
-# 3. Feature engineering over raw prediction
+### 3. Feature engineering over raw prediction
 Instead of feeding raw data directly into a model, I engineered interpretable features such as:
 - Distance to nearest station
 - Station ridership
@@ -59,7 +59,7 @@ Why
 
 ---
 
-# 4. Gradient Boosting Regressor
+### 4. Gradient Boosting Regressor
 I chose Gradient Boosting because:
 - Handles nonlinear relationships well
 - Works strongly on tabular data
@@ -71,7 +71,7 @@ Alternatives
 
 ---
 
-# 5. Time-aware validation
+### 5. Time-aware validation
 - I used **TimeSeriesSplit** instead of random splits.
 - Prevents data leakage
 - Better reflects real-world forecasting
