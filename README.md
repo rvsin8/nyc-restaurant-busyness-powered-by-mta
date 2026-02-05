@@ -32,10 +32,10 @@ This plot shows restaurant locations colored by predicted busyness. Clear cluste
 
 ### Tech Stack & Skills
 Programming & Tools
-Python – primary language for data processing, modeling, and visualization
-Pandas & NumPy – data cleaning, joins, aggregation, and feature engineering
-Scikit-learn – model training, evaluation, and validation
-Jupyter Notebooks – exploratory analysis and experimentation
+#### Python – primary language for data processing, modeling, and visualization
+#### Pandas & NumPy – data cleaning, joins, aggregation, and feature engineering
+#### Scikit-learn – model training, evaluation, and validation
+#### Jupyter Notebooks – exploratory analysis and experimentation
 
 
 Data Science & Machine Learning
