@@ -11,112 +11,57 @@ Beyond prediction, the goal is to understand how location, transit access, and d
   
 Subway ridership is a strong real-world signal for customer flow in NYC, making it a meaningful feature for modeling restaurant activity.
 
----
-
-## Key Design Decisions
-
-### 1. Station-level aggregation
-I aggregated ridership at the **station complex level** instead of individual turnstiles.
-- It reduces noise
-- It aligns better with how people think about stations
-- It improves interpretability
-
-Alternatives
-- Raw turnstile-level data (brings higher granularity but much noisier)
-
----
-
-### 2. Geospatial matching using BallTree + Haversine
-To associate each restaurant with its **nearest subway station**, I used
-- Haversine distance (accounts for Earth curvature)
-- BallTree for efficient nearest-neighbor search
-- Haversine distance accurately measures real-world distances on the Earth’s surface, which is essential for geographic data. 
-- BallTree allows fast nearest-neighbor searches at scale, making it efficient for matching thousands of restaurants to stations. 
-- Together, they balance accuracy and performance.
-
-Why
-- Scales efficiently to large datasets
-- More accurate than naive Euclidean distance
-
-Alternatives
-- Brute-force distance computation (simpler but much slower)
-- Grid-based approximations (less precise)
-
----
-
-### 3. Feature engineering over raw prediction
-Instead of feeding raw data directly into a model, I engineered interpretable features such as:
-- Distance to nearest station
-- Station ridership
-- Restaurant ratings and review counts
-
-Why
-- Engineered features like distance to transit and ridership capture meaningful signals more clearly than raw data alone. 
-- They help the model learn relationships that are easier to interpret and reason about. 
-- This also improves transparency when explaining results.
-
----
-
-### 4. Gradient Boosting Regressor
-I chose Gradient Boosting because:
-- Handles nonlinear relationships well
-- Works strongly on tabular data
-- Requires minimal feature scaling
-
-Alternatives
-- Linear regression (too simple)
-- Neural networks (overkill for tabular + limited data)
-
----
-
-### 5. Time-aware validation
-- I used **TimeSeriesSplit** instead of random splits.
-- Prevents data leakage
-- Better reflects real-world forecasting
-
----
-
-### Evaluation
-
-Model performance was evaluated using **Mean Absolute Error (MAE)**.
-
-Rather than optimizing for minimal error alone, I focused on:
-- Stability across time splits
-- Sensible feature importance
-- Consistent generalization
-
-This ensured the model learned **real signals**, not noise.
-
----
-
-### Results & Insights
-
-Key takeaways
-- Proximity to high-ridership subway stations correlates strongly with restaurant busyness.
-- Location and transit access matter as much as ratings.
-- High-rated restaurants still struggle in low-foot-traffic areas.
-- Spatial patterns are clearer through visualization than metrics alone.
-
-The NYC heatmap highlights clusters of high activity near transit hubs and dense neighborhoods.
-
----
-
-### Limitations & Future Work
-
-This project makes simplifying assumptions
-- Busyness is approximated from static features rather than live transaction data.
-- Causal relationships are not proven — only correlations.
-
-Possible extensions
-- Incorporate time-of-day and day-of-week effects
-- Add delivery app data or mobile foot-traffic data
-- Deploy as an interactive dashboard
-- Perform causal analysis or A/B-style simulations
-
----
-
-### Conclusion
-
 This project demonstrates an end-to-end applied ML workflow: data ingestion → spatial reasoning → feature engineering → modeling → validation → visualization.
 
 And, based on food density, variety, and accessibility, the analysis consistently points to 14th Street–Union Square as the best subway stop to get off if you’re looking for food in NYC.
+
+## Key Findings / Visual Evidence
+
+### 1) Restaurant Busyness Across NYC
+This plot shows restaurant locations colored by predicted busyness. Clear clusters appear in Manhattan and around major transit corridors, indicating strong spatial patterns in demand.
+
+![NYC Restaurant Busyness](images/nyc_restaurants_busyness.png)
+
+---
+
+### 2) Spatial Heatmap of Restaurant Demand
+The heatmap highlights areas with the highest concentration of busy restaurants. Demand is strongest near major subway hubs, especially in Midtown and Lower Manhattan.
+
+![NYC Restaurant Busyness Heatmap](images/heat_map.png)
+
+---
+
+### 3) Distance to Subway vs Restaurant Busyness
+This plot shows the relationship between distance to the nearest subway station and restaurant busyness (log scale). Restaurants closer to transit are significantly busier.
+
+![Busyness vs Distance to Subway](images/business_vs_distance.png)
+
+---
+
+### 4) Ratings vs Busyness
+Ratings alone have a weak correlation with busyness. High ratings do not guarantee high foot traffic if a restaurant is poorly located.
+
+![Rating vs Busyness](images/rating_versus_busyness.png)
+
+---
+
+### 5) Restaurant–Subway Geospatial Merge
+This visualization shows how restaurants were linked to their nearest subway stations using geospatial distance calculations.
+
+![Restaurant Subway Merge](images/subway_merge_restaurants.png)
+
+---
+
+### 6) Top Subway Stations by Nearby Restaurant Demand
+Stations are ranked by the total predicted busyness of nearby restaurants. This highlights which stops offer the best food density and demand.
+
+![Top Subway Stations](images/top_subway_results.png)
+
+---
+
+## Supporting Exploratory Plots
+
+### Raw Restaurant Distribution
+This plot shows the geographic distribution of all restaurants included in the analysis before modeling.
+
+![NYC Restaurants Raw Locations](images/nyc_restaurants.png)
