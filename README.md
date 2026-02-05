@@ -24,7 +24,7 @@ I aggregated ridership at the **station complex level** instead of individual tu
 - Aligns better with how people think about stations
 - Improves interpretability
 
-Alternative:
+Alternatives
 - Raw turnstile-level data (higher granularity but much noisier)
 
 ---
@@ -34,11 +34,11 @@ To associate each restaurant with its **nearest subway station**, I used:
 - Haversine distance (accounts for Earth curvature)
 - BallTree for efficient nearest-neighbor search
 
-Why:
+Why
 - Scales efficiently to large datasets
 - More accurate than naive Euclidean distance
 
-Alternative:
+Alternatives
 - Brute-force distance computation (simpler but much slower)
 - Grid-based approximations (less precise)
 
@@ -50,7 +50,7 @@ Instead of feeding raw data directly into a model, I engineered interpretable fe
 - Station ridership
 - Restaurant ratings and review counts
 
-Why:
+Why
 - Improves model learning
 - Makes results easier to explain and reason about
 
@@ -62,7 +62,7 @@ I chose Gradient Boosting because:
 - Works strongly on tabular data
 - Requires minimal feature scaling
 
-Alternatives:
+Alternatives
 - Linear regression (too simple)
 - Neural networks (overkill for tabular + limited data)
 
@@ -90,7 +90,7 @@ This ensured the model learned **real signals**, not noise.
 
 ## Results & Insights
 
-Key takeaways:
+Key takeaways
 - Proximity to high-ridership subway stations correlates strongly with restaurant busyness.
 - Location and transit access matter as much as ratings.
 - High-rated restaurants still struggle in low-foot-traffic areas.
@@ -102,11 +102,11 @@ The NYC heatmap highlights clusters of high activity near transit hubs and dense
 
 ## Limitations & Future Work
 
-This project makes simplifying assumptions:
+This project makes simplifying assumptions
 - Busyness is approximated from static features rather than live transaction data.
 - Causal relationships are not proven — only correlations.
 
-Possible extensions:
+Possible extensions
 - Incorporate time-of-day and day-of-week effects
 - Add delivery app data or mobile foot-traffic data
 - Deploy as an interactive dashboard
