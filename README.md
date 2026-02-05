@@ -41,6 +41,6 @@ Feature engineering, Supervised learning, Model evaluation, Time-aware validatio
 Latitude/longitude, Haversine distance, BallTree, Linking restaurants to nearest subway stations, Spatial clustering and hotspot analysis
 
 ![Rating vs Busyness](images/rating_versus_busyness.png)
-![Busyness vs Distance to Subway](images/business_vs_distance.png)
+![Busyness vs Distance to Subway](images/busyness_vs_distance.png)
 
 
