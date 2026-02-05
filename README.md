@@ -17,51 +17,29 @@ And, based on food density, variety, and accessibility, the analysis consistentl
 
 ## Key Findings / Visual Evidence
 
-### 1) Restaurant Busyness Across NYC
+### Restaurant Busyness Across NYC
 This plot shows restaurant locations colored by predicted busyness. Clear clusters appear in Manhattan and around major transit corridors, indicating strong spatial patterns in demand.
 
 ![NYC Restaurant Busyness](images/nyc_restaurants_busyness.png)
 
 ---
 
-### 2) Spatial Heatmap of Restaurant Demand
+### Spatial Heatmap of Restaurant Demand
 The heatmap highlights areas with the highest concentration of busy restaurants. Demand is strongest near major subway hubs, especially in Midtown and Lower Manhattan.
 
 ![NYC Restaurant Busyness Heatmap](images/heat_map.png)
 
 ---
 
-### 3) Distance to Subway vs Restaurant Busyness
+### Distance to Subway vs Restaurant Busyness
 This plot shows the relationship between distance to the nearest subway station and restaurant busyness (log scale). Restaurants closer to transit are significantly busier.
 
 ![Busyness vs Distance to Subway](images/business_vs_distance.png)
 
----
 
-### 4) Ratings vs Busyness
-Ratings alone have a weak correlation with busyness. High ratings do not guarantee high foot traffic if a restaurant is poorly located.
-
-![Rating vs Busyness](images/rating_versus_busyness.png)
-
----
-
-### 5) Restaurant–Subway Geospatial Merge
-This visualization shows how restaurants were linked to their nearest subway stations using geospatial distance calculations.
-
-![Restaurant Subway Merge](images/subway_merge_restaurants.png)
-
----
-
-### 6) Top Subway Stations by Nearby Restaurant Demand
+### Top Subway Stations by Nearby Restaurant Demand
 Stations are ranked by the total predicted busyness of nearby restaurants. This highlights which stops offer the best food density and demand.
 
 ![Top Subway Stations](images/top_subway_results.png)
 
----
-
-## Supporting Exploratory Plots
-
-### Raw Restaurant Distribution
-This plot shows the geographic distribution of all restaurants included in the analysis before modeling.
-
-![NYC Restaurants Raw Locations](images/nyc_restaurants.png)
+--
